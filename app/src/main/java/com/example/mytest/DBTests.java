@@ -14,7 +14,7 @@ import java.util.HashMap;
 
 public class DBTests {
 
-    private static final int DATABASE_VERSION = 58;
+    private static final int DATABASE_VERSION = 59;
     private static final String DATABASE_NAME = "TestsDB";
 
     private static final String TABLE_TEST_INFO = "Test_Info";

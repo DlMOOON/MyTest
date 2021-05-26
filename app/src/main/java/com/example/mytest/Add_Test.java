@@ -62,7 +62,7 @@ public class Add_Test extends AppCompatActivity {
         True_answers = findViewById(R.id.sys_true_answers);
         editing = false;
 
-        String[] category = {"Животные", "Игры", "История", "Литература", "Музыка", "Мультфильмы", "Психология", "Сериалы", "Фильмы", "География", "Развлекательный", "Прочие тесты"};
+        String[] category = {"Животные", "Игры", "История", "Литература", "Музыка", "Мультфильмы", "Психология", "Сериалы", "Фильмы", "География", "Развлекательный", "Интеллектуальные", "Прочие тесты"};
         ArrayAdapter<String> adapter_category = new ArrayAdapter<>(this, R.layout.spinner, R.id.spinner_text, category);
         Category.setAdapter(adapter_category);
 
