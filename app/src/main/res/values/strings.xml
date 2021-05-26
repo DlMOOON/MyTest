@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Тесты: Создавай и Проходи</string>
+    <string name="Создать">Создать</string>
+    <string name="Следующий_этап">Следующий этап</string>
+    <string name="Название_теста">Название теста:</string>
+    <string name="Описание_теста">Краткое описание:</string>
+    <string name="Категория_теста">Категория:</string>
+    <string name="Обложка_теста">Обложка:</string>
+    <string name="Выбор_обложки">Нажмите, чтобы выбрать обложку</string>
+    <string name="Таймер">Таймер</string>
+</resources>

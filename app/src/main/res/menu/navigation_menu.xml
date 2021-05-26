@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Главная"
+          android:icon="@drawable/navigation_all"
+          android:id="@+id/navigation_all" />
+    <item android:title="Мои"
+          android:icon="@drawable/navigation_my"
+          android:id="@+id/navigation_my"/>
+</menu>
+
+

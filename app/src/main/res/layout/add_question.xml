@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Constraint_add_question"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".Add_Test$Add_Question">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/Delete_Answer_2"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="8dp"
+            android:onClick="delete_answer"
+            android:src="@drawable/pic_minus"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/Add_answer_2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/Add_answer_2"
+            app:layout_constraintTop_toBottomOf="@+id/Add_answer_2" />
+
+        <EditText
+            android:id="@+id/Ball_4"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:hint="Балл"
+            android:inputType="number"
+            android:maxLength="3"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/Answer_4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/Answer_4" />
+
+        <EditText
+            android:id="@+id/Answer_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Вариант ответа №4"
+            android:textSize="14sp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/Answer_2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/Answer_2"
+            app:layout_constraintTop_toBottomOf="@+id/Answer_3" />
+
+        <EditText
+            android:id="@+id/Ball_3"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:hint="Балл"
+            android:inputType="number"
+            android:maxLength="3"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/Answer_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/Answer_3" />
+
+        <EditText
+            android:id="@+id/Ball_2"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:hint="Балл"
+            android:inputType="number"
+            android:maxLength="3"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/Answer_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/Answer_2" />
+
+        <Button
+            android:id="@+id/Add_Question"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/back_for_button"
+            android:text="Добавить вопрос"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/go_forward_from_add_que"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/go_back_from_add_que"
+            app:layout_constraintTop_toBottomOf="@+id/edit_next_que"
+            app:layout_constraintVertical_bias="0.909" />
+
+        <ImageView
+            android:id="@+id/Picture_Question"
+            android:layout_width="0dp"
+            android:layout_height="195dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/back_for_image_view"
+            android:onClick="Add_picture"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/plus2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textAlignment="center"
+            android:textSize="65sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/Picture_Question"
+            app:layout_constraintEnd_toEndOf="@+id/Picture_Question"
+            app:layout_constraintStart_toStartOf="@+id/Picture_Question"
+            app:layout_constraintTop_toTopOf="@+id/Picture_Question" />
+
+        <MultiAutoCompleteTextView
+            android:id="@+id/Question"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:hint="Текст вопроса"
+            android:maxLines="3"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Picture_Question" />
+
+        <EditText
+            android:id="@+id/Answer_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Вариант ответа №1"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Question" />
+
+        <EditText
+            android:id="@+id/Answer_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Вариант ответа №2"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/Answer_1"
+            app:layout_constraintStart_toStartOf="@+id/Answer_1"
+            app:layout_constraintTop_toBottomOf="@+id/Answer_1" />
+
+        <EditText
+            android:id="@+id/Answer_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Вариант ответа №3"
+            android:textSize="14sp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/Answer_2"
+            app:layout_constraintStart_toStartOf="@+id/Answer_2"
+            app:layout_constraintTop_toBottomOf="@+id/Answer_2" />
+
+        <EditText
+            android:id="@+id/Ball_1"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:hint="Балл"
+            android:inputType="number"
+            android:maxLength="3"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/Answer_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/Answer_1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.80" />
+
+        <ImageView
+            android:id="@+id/Add_answer_2"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:onClick="add_answer"
+            android:src="@drawable/pic_plus"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/Answer_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/Answer_2" />
+
+        <ImageView
+            android:id="@+id/go_back_from_add_que"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/back"
+            app:layout_constraintBottom_toBottomOf="@+id/Add_Question"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/Add_Question" />
+
+        <ImageView
+            android:id="@+id/go_forward_from_add_que"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/forward"
+            app:layout_constraintBottom_toBottomOf="@+id/Add_Question"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/Add_Question" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:text=" № правильного ответа"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Answer_4" />
+
+        <EditText
+            android:id="@+id/Number_true_answer"
+            android:layout_width="35dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintStart_toEndOf="@+id/textView6"
+            app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+        <ImageView
+            android:id="@+id/Add_answer"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:onClick="add_answer"
+            android:src="@drawable/pic_plus"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="@+id/Answer_4"
+            app:layout_constraintTop_toBottomOf="@+id/Answer_4" />
+
+        <ImageView
+            android:id="@+id/Delete_Answer"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="10dp"
+            android:onClick="delete_answer"
+            android:src="@drawable/pic_minus"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/Add_answer"
+            app:layout_constraintStart_toEndOf="@+id/Add_answer"
+            app:layout_constraintTop_toTopOf="@+id/Add_answer" />
+
+        <Button
+            android:id="@+id/edit_next_que"
+            android:layout_width="148dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/back_for_button"
+            android:text="След. вопрос"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Add_answer" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
