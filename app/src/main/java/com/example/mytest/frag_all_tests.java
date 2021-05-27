@@ -31,7 +31,7 @@ public class frag_all_tests extends Fragment {
 
     public void setData(){
         if (dbHelper.getTestID("Тест: знаете ли вы Москву?") == -1) {
-            dbHelper.add_test_info("Тест: знаете ли вы Москву?", "Кто вы? Экскурсовод, коренной москвич или приехали недавно? Все зависит от того, как вы ответите на наши вопросы.", "Прочие тесты", getPictureUri(R.drawable.moscow_main), 0, "True_answers", false);
+            dbHelper.add_test_info("Тест: знаете ли вы Москву?", "Кто вы? Экскурсовод, коренной москвич или приехали недавно? Все зависит от того, как вы ответите на наши вопросы.", "География", getPictureUri(R.drawable.moscow_main), 0, "True_answers", false);
             int TestID = dbHelper.getTestID("Тест: знаете ли вы Москву?");
             dbHelper.add_questions("Одна из рек, протекающих около Кремля, это Москва-река. А вторая?", "Неглинка", "Нейва", "Нерль", "Нягань", 0, 0, 0, 0, 1, getPictureUri(R.drawable.moscow_que_1), TestID);
             dbHelper.add_questions("По версии С. К. Кузнецова, название столицы произошло от слияния двух марийских слов “маска” и “ава”. Что они означают в переводе на русский?", "Медведица", "Черная земля", "Деревянный корабль", "Добрый люд", 0, 0, 0, 0, 1, getPictureUri(R.drawable.moscow_que_2), TestID);

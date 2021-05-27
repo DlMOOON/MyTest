@@ -139,6 +139,32 @@ public class Add_Test extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Выход");
+        if (editing){
+            builder.setMessage("Вы действительно хотите завершить редактирование?");
+        } else {
+            builder.setMessage("Вы действительно хотите завершить создание теста?");
+        }
+        builder.setCancelable(true);
+        builder.setPositiveButton("ДА", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        builder.setNegativeButton("НЕТ", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -333,9 +359,7 @@ public class Add_Test extends AppCompatActivity {
             findViewById(R.id.go_back_from_add_que).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(), Add_Test.class);
-                    intent.putExtra("ID", TestID);
-                    startActivity(intent);
+                    finish();
                 }
             });
 
@@ -352,7 +376,7 @@ public class Add_Test extends AppCompatActivity {
 
         @Override
         public void onBackPressed() {
-            AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Выход");
             if (editing){
                 builder.setMessage("Вы действительно хотите завершить редактирование?");
@@ -363,7 +387,8 @@ public class Add_Test extends AppCompatActivity {
             builder.setPositiveButton("ДА", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    finish();
+                    Intent intent = new Intent(Add_Test.Add_Question.this, MainActivity.class);
+                    startActivity(intent);
                 }
             });
             builder.setNegativeButton("НЕТ", new DialogInterface.OnClickListener() {
@@ -504,7 +529,7 @@ public class Add_Test extends AppCompatActivity {
         protected void onCreate(@Nullable Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.add_result);
-            setTitle("Редактирование результатов");
+            setTitle("Добавление результатов");
             TestID = getIntent().getExtras().getInt("ID");
             dbHelper = new DBTests(this);
             end_add = findViewById(R.id.end_add);
@@ -534,8 +559,7 @@ public class Add_Test extends AppCompatActivity {
             findViewById(R.id.go_back2).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(), Add_Question.class);
-                    startActivity(intent);
+                    finish();
                 }
             });
 
