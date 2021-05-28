@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/Обложка_теста"
+            android:text="Заглавная картинка:"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -147,24 +147,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-        <Button
-            android:id="@+id/Create_test_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="6dp"
-            android:background="@drawable/back_for_button"
-            android:onClick="Save_test_info"
-            android:text="@string/Следующий_этап"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Rating_system"
-            app:layout_constraintVertical_bias="0.99" />
-
         <TextView
             android:id="@+id/plus"
             android:layout_width="wrap_content"
@@ -222,10 +204,10 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginEnd="16dp"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/Create_test_info"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/Save_test_info"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/Create_test_info"
+            app:layout_constraintTop_toTopOf="@+id/Save_test_info"
             app:srcCompat="@drawable/forward" />
 
         <Button
@@ -233,16 +215,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="65dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="65dp"
+            android:layout_marginBottom="6dp"
             android:background="@drawable/back_for_button"
             android:onClick="Save_test_info"
             android:text="Сохранить"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/Create_test_info"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/Create_test_info" />
+            app:layout_constraintTop_toBottomOf="@+id/Rating_system"
+            app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

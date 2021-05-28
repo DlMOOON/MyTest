@@ -16,14 +16,14 @@
             android:id="@+id/Delete_Answer_2"
             android:layout_width="38dp"
             android:layout_height="38dp"
-            android:layout_marginTop="8dp"
             android:onClick="delete_answer"
             android:src="@drawable/pic_minus"
             android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/Answer_3"
             app:layout_constraintEnd_toEndOf="@+id/Add_answer_2"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/Add_answer_2"
-            app:layout_constraintTop_toBottomOf="@+id/Add_answer_2" />
+            app:layout_constraintTop_toTopOf="@+id/Answer_3" />
 
         <EditText
             android:id="@+id/Ball_4"
@@ -97,14 +97,14 @@
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="6dp"
             android:background="@drawable/back_for_button"
-            android:text="Добавить вопрос"
+            android:text="Сохранить"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/go_forward_from_add_que"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/go_back_from_add_que"
             app:layout_constraintTop_toBottomOf="@+id/edit_next_que"
-            app:layout_constraintVertical_bias="0.909" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <ImageView
             android:id="@+id/Picture_Question"
@@ -215,8 +215,6 @@
             android:id="@+id/Add_answer_2"
             android:layout_width="38dp"
             android:layout_height="38dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:onClick="add_answer"
             android:src="@drawable/pic_plus"
             android:visibility="invisible"

@@ -37,7 +37,6 @@ public class Add_Test extends AppCompatActivity {
     RadioGroup Rating_system;
     RadioButton Balls;
     RadioButton True_answers;
-    Button Create;
     Button Save;
     Uri uri;
     int TestID_for_editing;
@@ -53,7 +52,6 @@ public class Add_Test extends AppCompatActivity {
         Time = findViewById(R.id.Test_Time);
         Test_Picture = findViewById(R.id.Test_Picture);
         Category = findViewById(R.id.Test_Category);
-        Create = findViewById(R.id.Create_test_info);
         Save = findViewById(R.id.Save_test_info);
         Name = findViewById(R.id.Test_Name);
         Description = findViewById(R.id.Test_Description);
@@ -69,9 +67,6 @@ public class Add_Test extends AppCompatActivity {
         try {
             TestID_for_editing = getIntent().getExtras().getInt("ID");
             Test test = dbHelper.getTest(TestID_for_editing);
-            Create.setVisibility(View.INVISIBLE);
-            Save.setVisibility(View.VISIBLE);
-            findViewById(R.id.go_forward_from_add_test).setVisibility(View.VISIBLE);
             Name.setText(test.getName());
             Description.setText(test.getDescription());
             Rating_system.setVisibility(View.INVISIBLE);
@@ -142,7 +137,7 @@ public class Add_Test extends AppCompatActivity {
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Выход");
-        if (editing){
+        if (editing) {
             builder.setMessage("Вы действительно хотите завершить редактирование?");
         } else {
             builder.setMessage("Вы действительно хотите завершить создание теста?");
@@ -151,7 +146,8 @@ public class Add_Test extends AppCompatActivity {
         builder.setPositiveButton("ДА", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                finish();
+                Intent intent = new Intent(Add_Test.this, MainActivity.class);
+                startActivity(intent);
             }
         });
         builder.setNegativeButton("НЕТ", new DialogInterface.OnClickListener() {
@@ -196,13 +192,12 @@ public class Add_Test extends AppCompatActivity {
             intent.putExtra("Rating_system", rating_system);
             if (editing) {
                 dbHelper.update_test_info(name, description, category, uri, time_amount, rating_system, TestID_for_editing);
-                Toast.makeText(Add_Test.this, "Сохранено", Toast.LENGTH_SHORT).show();
             } else {
                 dbHelper.add_test_info(name, description, category, uri, time_amount, rating_system, true);
-                startActivity(intent);
             }
+            Toast.makeText(Add_Test.this, "Сохранено", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(getApplicationContext(), "Не заполнены поля!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Заполните поля!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -307,11 +302,11 @@ public class Add_Test extends AppCompatActivity {
                     int numb_true_ans = 0;
                     if (system_rating.equals("Balls")) {
                         if (Question.getText().toString().equals("") || Answer_1.getText().toString().equals("") || Ball_1.getText().toString().equals("") || Answer_2.getText().toString().equals("") || Ball_2.getText().toString().equals("")) {
-                            Toast.makeText(getApplicationContext(), "Заполнены не все поля", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Заполните поля", Toast.LENGTH_SHORT).show();
                         } else if (Answer_3.isShown() && Answer_3.getText().toString().equals("") || Ball_3.getText().toString().equals("") && Ball_3.isShown()) {
-                            Toast.makeText(getApplicationContext(), "Заполнены не все поля", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Заполните поля", Toast.LENGTH_SHORT).show();
                         } else if (Answer_4.isShown() && Answer_4.getText().toString().equals("") || Ball_4.getText().toString().equals("") && Ball_4.isShown()) {
-                            Toast.makeText(getApplicationContext(), "Заполнены не все поля", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Заполните поля", Toast.LENGTH_SHORT).show();
                         } else {
                             ball_1 = Integer.parseInt(Ball_1.getText().toString());
                             ball_2 = Integer.parseInt(Ball_2.getText().toString());
@@ -324,10 +319,10 @@ public class Add_Test extends AppCompatActivity {
                             if (editing) {
                                 dbHelper.update_questions(question, answer_1, answer_2, answer_3, answer_4, ball_1, ball_2, ball_3, ball_4, numb_true_ans, uri, TestID);
                                 Questions_for_editing = dbHelper.getTest(TestID).getQuestions();
-                                Toast.makeText(Add_Test.Add_Question.this, "Сохранено", Toast.LENGTH_SHORT).show();
                             } else {
                                 dbHelper.add_questions(question, answer_1, answer_2, answer_3, answer_4, ball_1, ball_2, ball_3, ball_4, numb_true_ans, uri, TestID);
                             }
+                            Toast.makeText(Add_Test.Add_Question.this, "Сохранено", Toast.LENGTH_SHORT).show();
                             if (!editing) {
                                 ClearAll();
                             }
@@ -337,17 +332,17 @@ public class Add_Test extends AppCompatActivity {
                             if (!Number_true_answer.getText().toString().equals("") && Number_true_answer.getText().toString().equals("0") && !question.equals("") && !answer_1.equals("") && !answer_2.equals("")) {
                                 Toast.makeText(getApplicationContext(), "Правильный ответ не может быть 0", Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(getApplicationContext(), "Заполнены не все поля", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Заполните поля", Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             numb_true_ans = Integer.parseInt(Number_true_answer.getText().toString());
                             if (editing) {
                                 dbHelper.update_questions(question, answer_1, answer_2, answer_3, answer_4, ball_1, ball_2, ball_3, ball_4, numb_true_ans, uri, TestID);
                                 Questions_for_editing = dbHelper.getTest(TestID).getQuestions();
-                                Toast.makeText(Add_Test.Add_Question.this, "Сохранено", Toast.LENGTH_SHORT).show();
                             } else {
                                 dbHelper.add_questions(question, answer_1, answer_2, answer_3, answer_4, ball_1, ball_2, ball_3, ball_4, numb_true_ans, uri, TestID);
                             }
+                            Toast.makeText(Add_Test.Add_Question.this, "Сохранено", Toast.LENGTH_SHORT).show();
                             if (!editing) {
                                 ClearAll();
                             }
@@ -378,7 +373,7 @@ public class Add_Test extends AppCompatActivity {
         public void onBackPressed() {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Выход");
-            if (editing){
+            if (editing) {
                 builder.setMessage("Вы действительно хотите завершить редактирование?");
             } else {
                 builder.setMessage("Вы действительно хотите завершить создание теста?");
@@ -518,7 +513,7 @@ public class Add_Test extends AppCompatActivity {
 
         int TestID;
         Button end_add;
-        Button add_result;
+        ImageView save_result;
         EditText min_ball;
         EditText max_ball;
         EditText title;
@@ -533,7 +528,7 @@ public class Add_Test extends AppCompatActivity {
             TestID = getIntent().getExtras().getInt("ID");
             dbHelper = new DBTests(this);
             end_add = findViewById(R.id.end_add);
-            add_result = findViewById(R.id.add_result);
+            save_result = findViewById(R.id.save_result);
             min_ball = findViewById(R.id.min_ball);
             max_ball = findViewById(R.id.max_ball);
             title = findViewById(R.id.title_add_result);
@@ -544,15 +539,20 @@ public class Add_Test extends AppCompatActivity {
                 textView.setText("Количество правильных ответов:");
             }
 
-            add_result.setOnClickListener(new View.OnClickListener() {
+            save_result.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     String Title = title.getText().toString();
                     String Description = description.getText().toString();
                     String Min = min_ball.getText().toString();
                     String Max = max_ball.getText().toString();
-                    dbHelper.add_result(Title, Description, Min, Max, TestID);
-                    ClearAll();
+                    if (!Min.equals("") && !Max.equals("") && !Title.equals("")) {
+                        dbHelper.add_result(Title, Description, Min, Max, TestID);
+                        ClearAll();
+                        Toast.makeText(getApplicationContext(), "Сохранено", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Заполните поля", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
 
