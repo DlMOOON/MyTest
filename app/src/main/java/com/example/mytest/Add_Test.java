@@ -83,14 +83,18 @@ public class Add_Test extends AppCompatActivity {
                     break;
                 }
             }
+            if (test.rating_system.equals("Balls")){
+                Balls.setChecked(true);
+            } else {
+                True_answers.setChecked(true);
+            }
             setTitle("Редактирование");
             editing = true;
             Picasso.get().load(test.getUri()).fit().centerCrop().into(Test_Picture);
             uri = test.getUri();
             findViewById(R.id.plus).setVisibility(View.INVISIBLE);
 
-        } catch (Exception ignored) {
-        }
+        } catch (Exception ignored) {}
 
         findViewById(R.id.go_forward_from_add_test).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -206,7 +210,7 @@ public class Add_Test extends AppCompatActivity {
         Uri uri;
         Integer TestID;
         DBTests dbHelper;
-        Button Add_Question;
+        Button Save;
         ImageView Add_Answer;
         ImageView Delete_Answer;
         ImageView Picture;
@@ -234,7 +238,7 @@ public class Add_Test extends AppCompatActivity {
             setTitle("Добавление вопроса");
 
             dbHelper = new DBTests(this);
-            Add_Question = findViewById(R.id.Add_Question);
+            Save = findViewById(R.id.Save);
             Add_Answer = findViewById(R.id.Add_answer);
             Delete_Answer = findViewById(R.id.Delete_Answer);
             Picture = findViewById(R.id.Picture_Question);
@@ -260,8 +264,8 @@ public class Add_Test extends AppCompatActivity {
                 findViewById(R.id.go_forward_from_add_que).setVisibility(View.INVISIBLE);
                 test_for_editing = dbHelper.getTest(TestID);
                 Questions_for_editing = test_for_editing.getQuestions();
-                Add_Question.setText("Сохранить");
                 next_question_for_editing();
+
             }
 
             if (system_rating.equals("Balls")) {
@@ -287,7 +291,7 @@ public class Add_Test extends AppCompatActivity {
                 }
             });
 
-            Add_Question.setOnClickListener(new View.OnClickListener() {
+            Save.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     String question = Question.getText().toString();
@@ -342,7 +346,8 @@ public class Add_Test extends AppCompatActivity {
                             } else {
                                 dbHelper.add_questions(question, answer_1, answer_2, answer_3, answer_4, ball_1, ball_2, ball_3, ball_4, numb_true_ans, uri, TestID);
                             }
-                            Toast.makeText(Add_Test.Add_Question.this, "Сохранено", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Add_Question.this, "Сохранено", Toast.LENGTH_SHORT).show();
+
                             if (!editing) {
                                 ClearAll();
                             }
@@ -421,7 +426,11 @@ public class Add_Test extends AppCompatActivity {
                 next_question_for_editing();
             } else {
                 uri = Uri.parse(Questions_for_editing.get(number_que)[6]);
-                Picture.setImageURI(uri);
+                if (uri.toString().equals("null")){
+                    findViewById(R.id.plus2).setVisibility(View.VISIBLE);
+                } else {
+                    Picture.setImageURI(uri);
+                }
                 Question.setText(Questions_for_editing.get(number_que)[0]);
                 Answer_1.setText(Questions_for_editing.get(number_que)[1]);
                 Answer_2.setText(Questions_for_editing.get(number_que)[2]);
@@ -462,9 +471,13 @@ public class Add_Test extends AppCompatActivity {
             if (Answer_4.isShown()) {
                 Answer_4.setVisibility(View.INVISIBLE);
                 Ball_4.setVisibility(View.INVISIBLE);
+                Answer_4.setText("");
+                Ball_4.setText("");
             } else {
                 Answer_3.setVisibility(View.INVISIBLE);
                 Ball_3.setVisibility(View.INVISIBLE);
+                Answer_3.setText("");
+                Ball_3.setText("");
             }
         }
 

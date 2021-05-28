@@ -89,7 +89,7 @@
             app:layout_constraintTop_toTopOf="@+id/Answer_2" />
 
         <Button
-            android:id="@+id/Add_Question"
+            android:id="@+id/Save"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginStart="32dp"
@@ -229,9 +229,9 @@
             android:layout_height="30dp"
             android:layout_marginStart="16dp"
             android:src="@drawable/back"
-            app:layout_constraintBottom_toBottomOf="@+id/Add_Question"
+            app:layout_constraintBottom_toBottomOf="@+id/Save"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/Add_Question" />
+            app:layout_constraintTop_toTopOf="@+id/Save" />
 
         <ImageView
             android:id="@+id/go_forward_from_add_que"
@@ -239,9 +239,9 @@
             android:layout_height="30dp"
             android:layout_marginEnd="16dp"
             android:src="@drawable/forward"
-            app:layout_constraintBottom_toBottomOf="@+id/Add_Question"
+            app:layout_constraintBottom_toBottomOf="@+id/Save"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/Add_Question" />
+            app:layout_constraintTop_toTopOf="@+id/Save" />
 
         <TextView
             android:id="@+id/textView6"
@@ -300,14 +300,14 @@
             android:id="@+id/edit_next_que"
             android:layout_width="140dp"
             android:layout_height="40dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
             android:background="@drawable/back_for_button"
             android:text="След. вопрос"
             android:textSize="12sp"
             android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Ball_4" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Add_answer" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
